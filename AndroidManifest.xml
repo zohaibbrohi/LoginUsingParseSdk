@@ -25,6 +25,7 @@
         </activity>
         <activity android:name=".SignUp" android:screenOrientation="portrait"></activity>
         <activity android:name=".MainActivity" android:screenOrientation="portrait"></activity>
+   		<activity android:name=".ForgetParsePassword" android:screenOrientation="portrait" android:noHistory="true"></activity>
     </application>
 
 </manifest>

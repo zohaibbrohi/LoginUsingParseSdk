@@ -27,6 +27,7 @@ import com.parse.ParseUser;
 public class Login extends Activity{
 	Button btn_LoginIn = null;
 	Button btn_SignUp = null;
+	Button btn_ForgetPass = null;
 	private EditText mUserNameEditText;
 	private EditText mPasswordEditText;
 
@@ -42,11 +43,17 @@ public class Login extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		//Initializing Parse SDK
+		onCreateParse();
+		//Calling ParseAnalytics to see Analytics of our app
+		ParseAnalytics.trackAppOpened(getIntent());
+		
 		// creating connection detector class instance
 		cd = new ConnectionDetector(getApplicationContext());
 
 		btn_LoginIn = (Button) findViewById(R.id.btn_login);
 		btn_SignUp = (Button) findViewById(R.id.btn_signup);
+		btn_ForgetPass = (Button) findViewById(R.id.btn_ForgetPass);
 		mUserNameEditText = (EditText) findViewById(R.id.username);
 		mPasswordEditText = (EditText) findViewById(R.id.password);
 
@@ -83,16 +90,23 @@ public class Login extends Activity{
 				startActivity(in);
 			}
 		});
+		
+		btn_ForgetPass.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent in =  new Intent(Login.this,ForgetParsePassword.class);
+				startActivity(in);
+			}
+		});
 
-		//Initializing Parse SDK
-		onCreateParse();
-		//Calling ParseAnalytics to see Analytics of our app
-		ParseAnalytics.trackAppOpened(getIntent());
+
 
 	}
 
 	public void onCreateParse() { 
-		Parse.initialize(this, "Your App ID", "Your CLient ID"); 
+		Parse.initialize(this, "Your App ID", "Your Client ID"); 
 	}
 
 

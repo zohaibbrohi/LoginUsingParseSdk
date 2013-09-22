@@ -48,4 +48,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_register" />
+
+            <Button
+                android:id="@+id/btn_ForgetPass"
+                android:layout_width="287dp"
+                android:layout_height="wrap_content"
+                android:text="Forget Password" />
+
 </LinearLayout>
